@@ -5,7 +5,7 @@ const messages = document.querySelector(".messages");
 const robotImg = document.querySelector(".robot_img");
 
 const WELCOME_API = 'http://127.0.0.1:5000/api/welcome';
-const MESSAGES_API = 'http://127.0.0.1:5000/api/messages';
+// const MESSAGES_API = 'http://127.0.0.1:5000/api/messages';
 const RESPONSE_API = 'http://127.0.0.1:5000/api/response';
 const USERNAME_API = 'http://127.0.0.1:5000/api/username';
 const DELUSER_API = 'http://127.0.0.1:5000/api/remove_username';
@@ -35,29 +35,12 @@ window.addEventListener(
         };
         getAPIResponse(WELCOME_API, request)
         .then(resp=> {
-            let last_time = "";
-            resp.data.forEach(function(msg) {
-                if (msg.created_date != undefined) {
-                    let tmpDate = new Date(msg.created_date);
-                    last_time = tmpDate.toLocaleString();
-                    console.log("last_time 1: " + last_time);
-                } else {
-                    console.log("last_time 2: " + last_time);
-                    messages.innerHTML += "<div class='msg-container text-muted'>" +
-                    "<span class='message'>" + last_time + "</span>" +
-                    "</div>";
-                }
-                if (msg.is_user) {
-                    displayGuest(msg.name, msg.content);
-                } else {
-                    displayChatbot(msg.name, msg.content);
-                    updateRobotImg(SMILE);
-                }
-
-            })
+            displayWelcome(resp.data);
         })
         .catch(resp=>{
             displayChatbot("Cheri", "Because of the laziness of my boss. I am temporarily out of service|Please come back later!!");
+            displayGuest("Minh", "I have tried my best, Cheri");
+            displayChatbot("Cheri", "Please try harder, Sir");
             updateRobotImg(ERROR);
             sendButton.disabled = true;
             server_error = true;
@@ -70,32 +53,31 @@ setInterval(
             getAPIResponse(WELCOME_API, request)
             .then(resp=> {
                 server_error = false;
-                let last_time = "";
-                console.log("Im in Interval response API");
-                resp.data.forEach(function(msg) {
-                    if (msg.created_date != undefined) {
-                        let tmpDate = new Date(msg.created_date);
-                        last_time = tmpDate.toLocaleString();
-                        console.log("last_time 1: " + last_time);
-                    } else {
-                        console.log("last_time 2: " + last_time);
-                        messages.innerHTML += "<div class='msg-container text-muted'>" +
-                        "<span class='message'>" + last_time + "</span>" +
-                        "</div>";
-                    }
-                    if (msg.is_user) {
-                        displayGuest(msg.name, msg.content);
-                    } else {
-                        displayChatbot(msg.name, msg.content);
-                        updateRobotImg(SMILE);
-                    }
-
-                })
+                displayWelcome(resp.data);
             })
         }
-    },
-    3000);
+    }, 3000);
 
+// function used for WELCOME_API
+function displayWelcome(data) {
+    let last_time = "";
+    data.forEach(function(msg) {
+        if (msg.created_date != undefined) {
+            let tmpDate = new Date(msg.created_date);
+            last_time = tmpDate.toLocaleString();
+        } else {
+            messages.innerHTML += "<div class='msg-container text-muted'>" +
+            "<span class='message'>" + last_time + "</span>" +
+            "</div>";
+        }
+        if (msg.is_user) {
+            displayGuest(msg.name, msg.content);
+        } else {
+            displayChatbot(msg.name, msg.content);
+            updateRobotImg(SMILE);
+        }
+    })
+}
 
 // Click Send button to send message
 sendButton.addEventListener(
@@ -114,7 +96,6 @@ input.addEventListener(
     },
     false);
 
-
 //Send user input to chatbot server and display messages
 // Called from clicking "Send" button or pressing "Enter"
 function sendMessage() {
@@ -127,11 +108,18 @@ function sendMessage() {
         };
         getAPIResponse(RESPONSE_API, repuest)
         .then(resp=> {
-            if (resp.username != "" && user.username != resp.username) {
-                user.username = resp.username;
-                addCookie("username", resp.username);
+            if (resp.status_code == 200) {
+                if (resp.username != "" && user.username != resp.username) {
+                    user.username = resp.username;
+                    addCookie("username", resp.username);
+                }
+                displayChatbot("Cheri", resp.data);
             }
-            displayChatbot("Cheri", resp.data);
+        })
+        .catch(resp=>{
+            displayChatbot("Cheri", "Sorry! Some problems happened with my server|I cannot talk with you any longer|Please come next time");
+            updateRobotImg(ERROR);
+            sendButton.disabled = true;
         })
     }
     input.value = "";
@@ -142,8 +130,8 @@ function sendMessage() {
 // Called from function sendMessage()
 function displayGuest(name, msg) {
     messages.innerHTML += "<div class='msg-container darker'>" +
-                      "<span class='message'>" + msg + "</span>" +
-                      "<span class='username right'>" + name + "</span>" +
+                      "<div class='message col-md-10'>" + msg + "</div>" +
+                      "<div class='username col-md-2 right'>" + name + "</div>" +
                       "</div>";
     messages.scrollTop = messages.scrollHeight;
 }
@@ -153,15 +141,15 @@ function displayGuest(name, msg) {
 function displayChatbot(name, msg) {
     if (!msg.includes("|")) {
         messages.innerHTML += "<div class='msg-container'>" +
-            "<span class='username'>" + name + "</span>" +
-            "<span class='message'>" + msg + "</span>" +
+            "<div class='username col-md-2'>" + name + "</div>" +
+            "<div class='message col-md-10'>" + msg + "</div>" +
             "</div>";
     } else {
         let sentences = msg.split("|");
         for (i in sentences) {
             messages.innerHTML += "<div class='msg-container'>" +
-                "<span class='username'>" + name + "</span>" +
-                "<span class='message'>" + sentences[i] + "</span>" +
+                "<div class='username col-md-2'>" + name + "</div>" +
+                "<div class='message col-md-10'>" + sentences[i] + "</div>" +
                 "</div>";
         }
     }
@@ -239,29 +227,3 @@ function addCookieUser(){
     console.log("User id: " + user_id);
     return user_id;
 }
-
-// Wait for connecting web socket to server
-function waitForSocketConnection(_socket, callback) {
-    setTimeout(
-        function(){
-            // Check web socket connection
-            if (_socket.readyState === 1) {
-                console.log('Connected to chat socket')
-                if (callback != null) {
-                    callback()
-                }
-            } else {
-                console.log('Wait for connection...')
-                waitForSocketConnection(_socket, callback)
-            }
-        }, 300)
-}
-
-//waitForSocketConnection(
-//    socket,
-//    // Join room
-//    () => {socket.send(JSON.stringify({
-//        "command": "join",
-//        "username": "Minh",
-//    }))}
-//)

@@ -1869,7 +1869,7 @@ button:focus {
     height: 80%;
     padding: 10px;
     background-color: white;
-    /* margin-top: 10%; */
+    margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 20%;
@@ -1880,12 +1880,13 @@ button:focus {
 .form-container textarea {
     width: 78%;
     height: 100%;
-    padding: 15px;
+    padding: 10px;
     margin: 5px 10px 10px 0;
     border: none;
     background: #f1f1f1;
     resize: none;
     float: left;
+    font-size: 13px;
 }
 
 /* When the textarea gets focus, do something */
@@ -1918,31 +1919,11 @@ button:focus {
     opacity: 1;
 }
 
-    .form-container .wrap {
+.form-container .wrap {
     display: flex;
     flex-wrap: nowrap;
     height: 13%;
 }
-
-/* dumb code */
-.portfolio_gallery1 {
-  margin-bottom: -30px;
-}
-
-
-
-.portfolio_gallery1 .gallery_info1 {
-  padding: 15px;
-  background: #fff;
-  cursor: pointer;
-  margin-bottom: 30px;
-}
-
-.portfolio_gallery1 .gallery_info1 .gallery_img1 {
-  position: relative;
-  overflow: hidden;
-}
-/* dumb code */
 
 .messages {
     height: 85%;
@@ -1956,9 +1937,8 @@ button:focus {
     display: inline-block;
     color: #C07A36;
     font-weight: bold;
-    padding: 5px;
     float: left;
-    margin-right: 10px;
+    margin: auto;
 }
 
 .right {
@@ -1971,10 +1951,11 @@ button:focus {
 
 .msg-container {
     border: 2px solid #dedede;
-    margin: 10px 5px 5px 5px;
+    margin: 5px;
     background-color: #f1f1f1;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
+    display: flex;
 }
 
 .darker {
