@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     jQuery.validator.addMethod('answercheck', function (value, element) {
         return this.optional(element) || /^\bcat\b$/.test(value)
-    }, "type the correct answer -_-");
+    }, "Type the correct answer.");
 
     // validate contactForm form
     $(function() {
@@ -38,7 +38,7 @@ $(document).ready(function(){
                     minlength: "Your name must consist of at least 2 characters"
                 },
                 subject: {
-                    required: "Please indicate a subject",
+                    required: "Please indicate a subject.",
                     minlength: "Subject must consist of at least 4 characters"
                 },
                 organization: {
@@ -53,27 +53,47 @@ $(document).ready(function(){
                 }
             },
             submitHandler: function(form) {
-                $(form).ajaxSubmit({
-                    type:"POST",
-                    data: $(form).serialize(),
-                    url:"contact_process.php",
-                    success: function() {
-                        $('#contactForm :input').attr('disabled', 'disabled');
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor','default');
-                            $('#success').fadeIn()
-                            $('.modal').modal('hide');
-		                	$('#success').modal('show');
-                        })
-                    },
-                    error: function() {
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $('#error').fadeIn()
-                            $('.modal').modal('hide');
-		                	$('#error').modal('show');
-                        })
-                    }
+                // Call getCookieUser function from chatbot-connection.js
+                let user_id = getCookieUser("user_id", "");
+                let name = form[0].value;
+                let email = form[1].value;
+                let subject = form[2].value;
+                let org = form[3].value;
+                let msg = form[4].value;
+
+                const FEEDBACK_API = 'http://127.0.0.1:5000/api/feedback'
+
+                request = {
+                    user_id: user_id,
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    organization: org,
+                    message: msg
+                };
+
+                // Call getAPIResponse function from chatbot-connection.js
+                getAPIResponse(FEEDBACK_API, request)
+                .then(resp=> {
+                    $('#contactForm').fadeTo(1000, 0.3, function() {
+                        $(this).find(':input').attr('disabled', 'disabled');
+                        $(this).find(':button').attr('disabled', 'disabled');
+                    	$('#contact-modal').modal({
+                            backdrop: false
+                        });
+                    })
+                })
+                .catch(resp=>{
+                    $('#contactForm').fadeTo(1000, 0.3, function() {
+                        $(this).find(':input').attr('disabled', 'disabled');
+                        $(this).find(':button').attr('disabled', 'disabled');
+                        $('#contact-modal').find(':button').css('background-color','#ee4000');
+                        $('#contact-modal').find('.modal-content').css('border-color','#ee4000');
+                        $('#contact-modal').find('.modal-body > p').text('Sorry! My server is temporarily out of service. Please send the message by email.');
+	                	$('#contact-modal').modal({
+                            backdrop: false
+                        });
+                    })
                 })
             }
         })

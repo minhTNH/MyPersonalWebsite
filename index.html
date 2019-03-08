@@ -159,7 +159,7 @@
                             <div class="section_title mb_50">
                                 <h2 class="title mb_0">What I Have Done</h2>
                             </div>
-                            <ul class="list_style gallery-filter">
+                            <!-- <ul class="list_style gallery-filter">
                                 <li class="active" data-filter="*">#All</li>
                                 <li data-filter=".art">#Python</li>
                                 <li data-filter=".art">#Linux</li>
@@ -167,7 +167,7 @@
                                 <li data-filter=".web">#Django</li>
                                 <li data-filter=".ux">#Flask</li>
                                 <li data-filter=".ux">#TensorFlow</li>
-                            </ul>
+                            </ul> -->
                             <div id="gallery" class="row portfolio_gallery">
                                 <div class="col-lg-4 col-md-6 col-xs-12 gallery-item art work web">
                                     <div class="gallery_info">
@@ -402,7 +402,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-7">
-                                        <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                                        <form class="row contact_form" id="contactForm" novalidate="novalidate">
                                             <div class="form-group col-md-6">
                                                 <input type="text" class="form-control" id="name" name="name" placeholder="Your name*">
                                             </div>
@@ -422,6 +422,22 @@
                                                 <button type="submit" value="submit" class="btn submit_dark">Send Your Message</button>
                                             </div>
                                         </form>
+
+                                        <!-- Modal Success -->
+                                        <div id="contact-modal" class="modal fade" role="dialog">
+                                          <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                              <div class="modal-body">
+                                                <p>Thank you for your message. I will contact with you soon.</p>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-modal" data-dismiss="modal">Close</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -449,11 +465,12 @@
     <!-- <script src="vendors/slick/slick.min.js"></script> -->
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.form.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/custom.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="js/animated-headline.js"></script>
     <script src="js/chatbot-connection.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/custom.js"></script>
+
 </body>
 
 </html>

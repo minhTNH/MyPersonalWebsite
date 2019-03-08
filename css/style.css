@@ -1,20 +1,4 @@
-/*----------------------------------------------------
-@File: Default Styles
-@Author: Dreemsthemes
-@URL: http://wethemez.com
-Author E-mail: ronymia015@gmail.com
-
-This file contains the styling for the actual template, this
-is the file you need to edit to change the look of the
-template.
----------------------------------------------------- */
 /*=====================================================================
-@Template Name: Xman
-@Author: Rony
-@Developed By: Rony
-@Developer URL: http://rocky.wethemez.com
-Author E-mail: ronymia015@gmail.com
-
 @Default Styles
 
 Table of Content:
@@ -1897,7 +1881,7 @@ button:focus {
 
 /* Set a style for the submit/login button */
 .btn {
-    background-color: #4CAF50;
+    background-color: #4876FF;
     color: white;
     padding: 16px 20px;
     border: none;
@@ -1969,4 +1953,20 @@ button:focus {
     font-style: italic;
     text-align: center;
     font-size: 12px;
+}
+
+.modal {
+    position: absolute;
+    top: 20%;
+}
+
+.modal-content {
+    border: 2px solid #4876ff;
+    border-radius: 12px;
+}
+
+.btn-modal {
+    width: unset;
+    margin-bottom: unset;
+    padding: 0.375rem 0.75rem;
 }

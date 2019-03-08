@@ -102,11 +102,11 @@ function sendMessage() {
     let user_input = input.value.trim();
     if (user_input != "") {
         displayGuest(user.username, user_input);
-        repuest = {
+        request = {
           user_id: user.user_id,
           request: user_input
         };
-        getAPIResponse(RESPONSE_API, repuest)
+        getAPIResponse(RESPONSE_API, request)
         .then(resp=> {
             if (resp.status_code == 200) {
                 if (resp.username != "" && user.username != resp.username) {
@@ -209,7 +209,6 @@ function getCookieUser(key, default_value){
             return value;
         }
     }
-    console.log("Cookie: " + key + " = " + default_value);
     return default_value;
 }
 
@@ -224,6 +223,5 @@ function addCookieUser(){
     } else {
         addCookie("existed", "True", 7);
     }
-    console.log("User id: " + user_id);
     return user_id;
 }
