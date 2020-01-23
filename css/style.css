@@ -71,7 +71,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   color: #252a32;
 }
 
@@ -125,7 +125,7 @@ button:focus {
 }
 
 .sec_pad {
-  padding: 95px 0px;
+  padding: 95px 0px 0px;
   overflow: hidden;
 }
 
@@ -684,15 +684,17 @@ button:focus {
 }
 
 .home_area .personal_img.img_two {
-  background: url("../image/welsh-corgi.jpg") no-repeat scroll;
+  background: url("../image/Avatar.jpg") no-repeat scroll;
   position: fixed;
   overflow: hidden;
-  top: 0;
-  width: 46%;
-  height: 100%;
+  width: 479px;
+  height: 639px;
   background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
+  background-position: center;
+  background-size: contain;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
 }
 
 .personal_details {
@@ -1319,6 +1321,11 @@ button:focus {
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /*=========== portfolio_area css =============*/
+
+.portfolio_area {
+  background: url("../image/portfolio-bg.jpg") no-repeat scroll center 0/cover;
+}
+
 .gallery-filter {
   padding: 15px 0px 40px;
 }
@@ -1698,6 +1705,7 @@ button:focus {
 /*============= contact_area css ============*/
 .contact_area {
   overflow: hidden;
+  background: url("../image/contact_bg.jpg") no-repeat scroll center 0/cover;
 }
 
 .contact {
@@ -1787,7 +1795,7 @@ button:focus {
 }
 
 .contact_info p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   color: #70757f;
   margin: 0px;
@@ -1820,7 +1828,7 @@ button:focus {
 }
 
 .contact_title {
-  font: 700 16px/28px "Raleway", sans-serif;
+  font: 700 20px/28px "Raleway", sans-serif;
   color: #252a32;
   text-transform: uppercase;
   margin-bottom: 5px;
