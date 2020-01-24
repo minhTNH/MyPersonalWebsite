@@ -684,17 +684,16 @@ button:focus {
 }
 
 .home_area .personal_img.img_two {
-  background: url("../image/Avatar.jpg") no-repeat scroll;
+  background: url("../image/Avatar.png") no-repeat scroll;
   position: fixed;
   overflow: hidden;
-  width: 479px;
-  height: 639px;
+  width: 480px;
+  height: 640px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 50%;
 }
 
 .personal_details {

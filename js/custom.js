@@ -7,6 +7,12 @@
         $('.menu-toggle').toggleClass('open');
     });
 
+    // Mobile menu - Disappear menu after being clicked
+    $('.navigation_menu').on('click', function() {
+        $('.header_area').removeClass('mobile-menu-hide');
+        $('.menu-toggle').removeClass('open');
+    });
+
     // preloader js
      $(window).on('load', function() { // makes sure the whole site is loaded
 		$('.sampleContainer').fadeOut(); // will first fade out the loading animation
