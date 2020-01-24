@@ -22,9 +22,9 @@
         $(''+tagid).addClass('pt-page-current');
     });
 
-    $('a[href="#cheri"]').on('click', function(e) {
-        console.log("I'm here");
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
-      });
+    // $('a[href="#cheri"]').on('click', function(e) {
+    //     console.log("I'm here");
+    //     e.preventDefault();
+    //     $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+    //   });
 })(jQuery)

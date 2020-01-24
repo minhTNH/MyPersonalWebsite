@@ -53,8 +53,8 @@ $(document).ready(function(){
                 }
             },
             submitHandler: function(form) {
-                // Call getCookieUser function from chatbot-connection.js
-                let user_id = getCookieUser("user_id", "");
+                // // Call getCookieUser function from chatbot-connection.js
+                // let user_id = getCookieUser("user_id", "");
                 let name = form[0].value;
                 let email = form[1].value;
                 let subject = form[2].value;
@@ -64,7 +64,7 @@ $(document).ready(function(){
                 const FEEDBACK_API = 'http://127.0.0.1:5000/api/feedback'
 
                 request = {
-                    user_id: user_id,
+                    // user_id: user_id,
                     name: name,
                     email: email,
                     subject: subject,
