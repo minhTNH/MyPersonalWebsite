@@ -258,6 +258,9 @@
         font-size: 35px;
         line-height: 50px;
     }
+    .sec_pad {
+      padding: 0px;
+    }
 }
 @media (max-width:414px){
     .personal_details h5 {
