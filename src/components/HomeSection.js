@@ -1,5 +1,6 @@
 import React from 'react';
 import Links from './Links';
+import Avatar from '../images/Avatar.png';
 
 const HomeSection = (props) => {
   return (
@@ -17,28 +18,29 @@ const HomeSection = (props) => {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-lg-6">
-            <div className="personal_img img_two">
+          <div className="col-lg-5">
+            <div className="personal_img">
+              <img src={Avatar} className="img_two" alt="avatar" />
             </div>
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-7">
             <div className="personal_details">
               <h6 className="text_upparcase">Welcome to my website!</h6>
               <h1>This is Minh Nguyen</h1>
               <div className="cd-intro">
                 <h1 className="cd-headline clip is-full-width">
-                  <span>I am </span>
+
                   <span className="cd-words-wrapper">
                     <b className="is-visible">Software Developer</b>
-                    <b>Python Developer</b>
+                    <b>Python Programmer</b>
                     <b>Java Developer</b>
-                    <b>Creative Thinker</b>
+                    <b>Application Programmer</b>
                     <b>JavaScript Developer</b>
-                    <b>Hobby Photographer</b>
+                    <b>Full-Stack Developer</b>
                   </span>
                 </h1>
               </div>
-              <p>- Hi, I am working as a software developer for last 4 years.</p>
+              <p>- Hi, I have been working as a software developer for the past 3 years.</p>
               <p>- Programming is my field and problem solving is my joy in spare time. You can check my Hackerrank page for more details.</p>
               <p>- I often spend all my time researching interesting technology. I have researched Learning Machine for chatbot named Cheri. My first intention was to deploy Cheri here on my website but I could not afford to lease a decent server, it's quite expensive!! However, you can check my Github for the Cheri's code. I hope to show my Cheri to you soon.</p>
               <p>- Besides programming, photography is a second hobby. I love walking around Ontario parks and shooting beautiful pictures as much as possible.</p>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Logo from './images/new-logo.png';
 
 import Header from './components/Header';
 import HomeSection from './components/HomeSection';
@@ -11,13 +12,28 @@ class App extends Component {
     super(props);
     this.state = {
       activeID: 'home',
+      mobileToggle: ''
     }
+    this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
   }
 
   getIdSection = (id) => {
+    this.toggleMobileMenu();
     this.setState((state) => {
       return {activeID: id};
     });
+  }
+
+  toggleMobileMenu() {
+      if (this.state.mobileToggle === '') {
+          this.setState((state) => {
+            return {mobileToggle: 'active'};
+          });
+      } else {
+          this.setState((state) => {
+            return {mobileToggle: ''};
+          });
+      }
   }
 
   render() {
@@ -34,11 +50,20 @@ class App extends Component {
         break;
       default:
         displaySection = <HomeSection active={this.state.activeID} />;
-    } 
+    }
     return (
       <div>
         <div className="page">
-          <Header getIdSection={this.getIdSection.bind(this)} />
+          <Header getIdSection={this.getIdSection.bind(this)} mobileToggle={this.state.mobileToggle} />
+          <div className="mobile_header mobile_visible">
+            <div className="logo">
+                <img src={Logo} alt="logo"/>
+            </div>
+            <a className={`menu-toggle ${this.state.mobileToggle === "active"? 'open': ''}`} onClick={this.toggleMobileMenu}>
+              <i className="fa fa-bars"></i>
+              <i className="fa fa-times"></i>
+            </a>
+          </div>
           <div className="main_body">
             <div className="page_wrapper">
               <div className="subpages" id="pt-main">

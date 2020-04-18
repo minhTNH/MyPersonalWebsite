@@ -1,5 +1,10 @@
 import React from 'react';
 import Project from './Project';
+import Background from '../images/portfolio-bg.jpg';
+
+const SectionStyle = {
+  backgroundImage: 'url(' + Background + ')',
+};
 
 const PortfolioSection = (props) => {
 	const data = [
@@ -41,8 +46,7 @@ const PortfolioSection = (props) => {
 	]
 
 	return (
-
-		<div className={`pt-page pt-page-3 portfolio_area sec_pad ${props.active === "portfolio"? 'pt-page-current': ''}`} id="portfolio">
+		<section style={SectionStyle} className={`pt-page pt-page-3 portfolio_area sec_pad ${props.active === "portfolio"? 'pt-page-current': ''}`} id="portfolio">
 			<div className="container">
 				<div className="section_title mb_50">
 					<h2 className="title mb_0">What I Have Done</h2>
@@ -57,7 +61,7 @@ const PortfolioSection = (props) => {
 					}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
 

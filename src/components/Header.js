@@ -3,7 +3,7 @@ import Logo from '../images/new-logo.png';
 import Links from './Links';
 
 const Header = (props) => {
-  
+
   const [activeId, setActiveId] = useState('home');
 
   const handleClick = (e) => {
@@ -13,7 +13,7 @@ const Header = (props) => {
   }
 
   return (
-    <header className="header_area">
+    <header className={`header_area ${props.mobileToggle === "active"? 'mobile-menu-hide': ''}`}>
       <div className="main_menu pt-triggers">
         <div className="logo">
           <img src={Logo} className="logo_img" alt="logo" />

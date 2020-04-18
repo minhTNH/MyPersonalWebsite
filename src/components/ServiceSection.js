@@ -1,5 +1,10 @@
 import React from 'react';
 import Skills from './Skills';
+import Background from '../images/service-bg.jpg';
+
+const SectionStyle = {
+  backgroundImage: 'url(' + Background + ')',
+};
 
 const ServiceSection = (props) => {
 	const data = [
@@ -26,7 +31,7 @@ const ServiceSection = (props) => {
 	]
 	return (
 
-		<section className={`pt-page pt-page-4 service_area sec_pad ${props.active === "service"? 'pt-page-current': ''}`} id="service">
+		<section style={SectionStyle} className={`pt-page pt-page-4 service_area sec_pad ${props.active === "service"? 'pt-page-current': ''}`} id="service">
 			<div className="container">
 				<div className="section_title">
 					<h2 className="title mb_0">my service</h2>

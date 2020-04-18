@@ -1,9 +1,14 @@
 import React from 'react';
 import Links from './Links';
+import Background from '../images/contact_bg.jpg';
+
+const SectionStyle = {
+  backgroundImage: 'url(' + Background + ')',
+};
 
 const ContactSection = (props) => {
 	return (
-		<section className={`pt-page pt-page-5 contact_area sec_pad ${props.active === "contact"? 'pt-page-current': ''}`} id="contact">
+		<section style={SectionStyle} className={`pt-page pt-page-5 contact_area sec_pad ${props.active === "contact"? 'pt-page-current': ''}`} id="contact">
 			<div className="contact">
 				<div className="container">
 					<div className="section_title mb_50">
