@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.js": "/static/js/main.c58a3703.chunk.js",
-    "main.js.map": "/static/js/main.c58a3703.chunk.js.map",
+    "main.js": "/static/js/main.4ce80092.chunk.js",
+    "main.js.map": "/static/js/main.4ce80092.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e621c819.js",
     "runtime-main.js.map": "/static/js/runtime-main.e621c819.js.map",
-    "static/js/2.576ef57e.chunk.js": "/static/js/2.576ef57e.chunk.js",
-    "static/js/2.576ef57e.chunk.js.map": "/static/js/2.576ef57e.chunk.js.map",
+    "static/js/2.3f5ad714.chunk.js": "/static/js/2.3f5ad714.chunk.js",
+    "static/js/2.3f5ad714.chunk.js.map": "/static/js/2.3f5ad714.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.c4b53444a73c2daaa8a807de8eb03753.js": "/precache-manifest.c4b53444a73c2daaa8a807de8eb03753.js",
+    "precache-manifest.be2dcc0bf03fce98a721d581ca6bdbda.js": "/precache-manifest.be2dcc0bf03fce98a721d581ca6bdbda.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.576ef57e.chunk.js.LICENSE.txt": "/static/js/2.576ef57e.chunk.js.LICENSE.txt",
+    "static/js/2.3f5ad714.chunk.js.LICENSE.txt": "/static/js/2.3f5ad714.chunk.js.LICENSE.txt",
     "static/media/Avatar.png": "/static/media/Avatar.7c691f30.png",
+    "static/media/contact_bg.jpg": "/static/media/contact_bg.6314b797.jpg",
     "static/media/new-logo.png": "/static/media/new-logo.a0c46e84.png",
+    "static/media/portfolio-bg.jpg": "/static/media/portfolio-bg.7ab828f2.jpg",
     "static/media/portfolio-img1.jpg": "/static/media/portfolio-img1.bcda5498.jpg",
     "static/media/portfolio-img2.jpg": "/static/media/portfolio-img2.4e45f0c3.jpg",
     "static/media/portfolio-img3.jpg": "/static/media/portfolio-img3.74497768.jpg",
     "static/media/portfolio-img4.jpg": "/static/media/portfolio-img4.cb4683a0.jpg",
-    "static/media/portfolio-img5.jpg": "/static/media/portfolio-img5.8ca1dce8.jpg"
+    "static/media/portfolio-img5.jpg": "/static/media/portfolio-img5.8ca1dce8.jpg",
+    "static/media/service-bg.jpg": "/static/media/service-bg.9157b537.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.e621c819.js",
-    "static/js/2.576ef57e.chunk.js",
-    "static/js/main.c58a3703.chunk.js"
+    "static/js/2.3f5ad714.chunk.js",
+    "static/js/main.4ce80092.chunk.js"
   ]
 }
